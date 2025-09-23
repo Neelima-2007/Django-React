@@ -1,12 +1,24 @@
-import React from "react";
-import RegistrationForm from "./Components/RegistrationForm";
+import React from 'react'
+import Landingpage from './pages/Landingpage'
 
-function App() {
+const App = () => {
   return (
     <div>
-      <RegistrationForm />
+      <Landingpage/>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
+
+
+
+
+
+
+
+
+
+
+
+
