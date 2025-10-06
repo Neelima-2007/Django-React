@@ -13,6 +13,7 @@ class Course(models.Model):
 class Registration(models.Model):
     name = models.CharField(max_length=100)
     email = models.EmailField()
+    mobile = models.CharField(max_length=15, unique=False, null=True, blank=True)
     course = models.ForeignKey(Course, on_delete=models.CASCADE)
 
     def __str__(self):

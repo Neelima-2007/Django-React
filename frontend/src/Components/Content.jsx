@@ -1,92 +1,134 @@
-import React from 'react'
+import React from "react";
+import { motion } from "framer-motion";
 
-const content = () => {
+const Content = () => {
   return (
-    <div>
-      <section>
+    <div className="bg-gray-50 text-gray-800">
+      {/* Hero Section */}
+      <section className="bg-blue-700 text-white text-center py-16">
+        <motion.h1
+          className="text-4xl md:text-5xl font-bold mb-4"
+          initial={{ opacity: 0, y: -50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+        >
+          Welcome to Course Registration System
+        </motion.h1>
+        <motion.p
+          className="text-lg md:text-xl max-w-2xl mx-auto"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.4 }}
+        >
+          A simple and efficient platform to explore, register, and manage
+          courses online — built with Django and React.
+        </motion.p>
+      </section>
 
-      </section><section class="text-gray-600 body-font">
-  <div class="container px-5 py-24 mx-auto">
-    <div class="flex flex-wrap w-full mb-20 flex-col items-center text-center">
-      <h1 class="sm:text-3xl text-2xl font-medium title-font mb-2 text-gray-900">Pitchfork Kickstarter Taxidermy</h1>
-      <p class="lg:w-1/2 w-full leading-relaxed text-gray-500">Whatever cardigan tote bag tumblr hexagon brooklyn asymmetrical gentrify, subway tile poke farm-to-table.</p>
-    </div>
-    <div class="flex flex-wrap -m-4">
-      <div class="xl:w-1/3 md:w-1/2 p-4">
-        <div class="border border-gray-200 p-6 rounded-lg">
-          <div class="w-10 h-10 inline-flex items-center justify-center rounded-full bg-indigo-100 text-indigo-500 mb-4">
-            <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-6 h-6" viewBox="0 0 24 24">
-              <path d="M22 12h-4l-3 9L9 3l-3 9H2"></path>
-            </svg>
-          </div>
-          <h2 class="text-lg text-gray-900 font-medium title-font mb-2">Shooting Stars</h2>
-          <p class="leading-relaxed text-base">Fingerstache flexitarian street art 8-bit waist co, subway tile poke farm.</p>
-        </div>
-      </div>
-      <div class="xl:w-1/3 md:w-1/2 p-4">
-        <div class="border border-gray-200 p-6 rounded-lg">
-          <div class="w-10 h-10 inline-flex items-center justify-center rounded-full bg-indigo-100 text-indigo-500 mb-4">
-            <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-6 h-6" viewBox="0 0 24 24">
-              <circle cx="6" cy="6" r="3"></circle>
-              <circle cx="6" cy="18" r="3"></circle>
-              <path d="M20 4L8.12 15.88M14.47 14.48L20 20M8.12 8.12L12 12"></path>
-            </svg>
-          </div>
-          <h2 class="text-lg text-gray-900 font-medium title-font mb-2">The Catalyzer</h2>
-          <p class="leading-relaxed text-base">Fingerstache flexitarian street art 8-bit waist co, subway tile poke farm.</p>
-        </div>
-      </div>
-      <div class="xl:w-1/3 md:w-1/2 p-4">
-        <div class="border border-gray-200 p-6 rounded-lg">
-          <div class="w-10 h-10 inline-flex items-center justify-center rounded-full bg-indigo-100 text-indigo-500 mb-4">
-            <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-6 h-6" viewBox="0 0 24 24">
-              <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"></path>
-              <circle cx="12" cy="7" r="4"></circle>
-            </svg>
-          </div>
-          <h2 class="text-lg text-gray-900 font-medium title-font mb-2">Neptune</h2>
-          <p class="leading-relaxed text-base">Fingerstache flexitarian street art 8-bit waist co, subway tile poke farm.</p>
-        </div>
-      </div>
-      <div class="xl:w-1/3 md:w-1/2 p-4">
-        <div class="border border-gray-200 p-6 rounded-lg">
-          <div class="w-10 h-10 inline-flex items-center justify-center rounded-full bg-indigo-100 text-indigo-500 mb-4">
-            <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-6 h-6" viewBox="0 0 24 24">
-              <path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1zM4 22v-7"></path>
-            </svg>
-          </div>
-          <h2 class="text-lg text-gray-900 font-medium title-font mb-2">Melanchole</h2>
-          <p class="leading-relaxed text-base">Fingerstache flexitarian street art 8-bit waist co, subway tile poke farm.</p>
-        </div>
-      </div>
-      <div class="xl:w-1/3 md:w-1/2 p-4">
-        <div class="border border-gray-200 p-6 rounded-lg">
-          <div class="w-10 h-10 inline-flex items-center justify-center rounded-full bg-indigo-100 text-indigo-500 mb-4">
-            <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-6 h-6" viewBox="0 0 24 24">
-              <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
-            </svg>
-          </div>
-          <h2 class="text-lg text-gray-900 font-medium title-font mb-2">Bunker</h2>
-          <p class="leading-relaxed text-base">Fingerstache flexitarian street art 8-bit waist co, subway tile poke farm.</p>
-        </div>
-      </div>
-      <div class="xl:w-1/3 md:w-1/2 p-4">
-        <div class="border border-gray-200 p-6 rounded-lg">
-          <div class="w-10 h-10 inline-flex items-center justify-center rounded-full bg-indigo-100 text-indigo-500 mb-4">
-            <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-6 h-6" viewBox="0 0 24 24">
-              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
-            </svg>
-          </div>
-          <h2 class="text-lg text-gray-900 font-medium title-font mb-2">Ramona Falls</h2>
-          <p class="leading-relaxed text-base">Fingerstache flexitarian street art 8-bit waist co, subway tile poke farm.</p>
-        </div>
-      </div>
-    </div>
-    <button class="flex mx-auto mt-16 text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg">Button</button>
-  </div>
-</section>
-    </div>
-  )
-}
+      {/* About Section */}
+      <section className="py-16 px-6 md:px-20">
+        <h2 className="text-3xl font-bold text-center text-blue-700 mb-6">
+          About the Project
+        </h2>
+        <p className="text-center max-w-3xl mx-auto text-gray-700 leading-relaxed">
+          The <strong>Course Registration System</strong> allows students to
+          browse available courses, view course details, and register easily.
+          It is designed to make the enrollment process faster and more
+          transparent. The backend is powered by <strong>Django REST Framework</strong>,
+          and the frontend is built with <strong>React.js</strong> for a smooth
+          user experience.
+        </p>
+      </section>
 
-export default content
+      {/* Features Section */}
+      <section className="bg-white py-16 px-6 md:px-20">
+        <h2 className="text-3xl font-bold text-center text-blue-700 mb-10">
+          Key Features
+        </h2>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 text-center">
+          <motion.div
+            className="p-6 bg-gray-100 rounded-xl shadow-md hover:shadow-lg transition"
+            whileHover={{ scale: 1.05 }}
+          >
+            <h3 className="text-xl font-semibold mb-3 text-blue-600">
+              🧾 Course Management
+            </h3>
+            <p>
+              Admins can add, update, and delete courses easily from the
+              backend.
+            </p>
+          </motion.div>
+
+          <motion.div
+            className="p-6 bg-gray-100 rounded-xl shadow-md hover:shadow-lg transition"
+            whileHover={{ scale: 1.05 }}
+          >
+            <h3 className="text-xl font-semibold mb-3 text-blue-600">
+              👩‍🎓 Student Registration
+            </h3>
+            <p>
+              Students can browse available courses and register with a few
+              clicks.
+            </p>
+          </motion.div>
+
+          <motion.div
+            className="p-6 bg-gray-100 rounded-xl shadow-md hover:shadow-lg transition"
+            whileHover={{ scale: 1.05 }}
+          >
+            <h3 className="text-xl font-semibold mb-3 text-blue-600">
+              📊 REST API Integration
+            </h3>
+            <p>
+              Uses Django REST API to handle data securely and efficiently
+              between frontend and backend.
+            </p>
+          </motion.div>
+
+          <motion.div
+            className="p-6 bg-gray-100 rounded-xl shadow-md hover:shadow-lg transition"
+            whileHover={{ scale: 1.05 }}
+          >
+            <h3 className="text-xl font-semibold mb-3 text-blue-600">
+              💻 Responsive UI
+            </h3>
+            <p>
+              Designed with modern UI frameworks for seamless experience on all
+              devices.
+            </p>
+          </motion.div>
+
+          <motion.div
+            className="p-6 bg-gray-100 rounded-xl shadow-md hover:shadow-lg transition"
+            whileHover={{ scale: 1.05 }}
+          >
+            <h3 className="text-xl font-semibold mb-3 text-blue-600">
+              🔒 Secure Data Handling
+            </h3>
+            <p>
+              User data is managed securely using Django’s authentication and
+              REST permissions.
+            </p>
+          </motion.div>
+
+          <motion.div
+            className="p-6 bg-gray-100 rounded-xl shadow-md hover:shadow-lg transition"
+            whileHover={{ scale: 1.05 }}
+          >
+            <h3 className="text-xl font-semibold mb-3 text-blue-600">
+              ⚙️ Easy Deployment
+            </h3>
+            <p>
+              Can be hosted easily on any web server with backend and frontend
+              integration.
+            </p>
+          </motion.div>
+        </div>
+      </section>
+
+      
+    </div>
+  );
+};
+
+export default Content;
