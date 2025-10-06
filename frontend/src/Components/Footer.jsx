@@ -80,9 +80,9 @@ const Footer = () => {
           Have questions or suggestions? We’d love to hear from you!
         </p>
         <p className="text-lg">
-          📧 Email: <a href="mailto:support@coursesystem.com" className="underline">support@coursesystem.com</a>
+          📧 Email: <a href="mailto:support@coursesystem.com" className="underline">info@srivensy.in</a>
         </p>
-        <p className="text-lg mt-2">📞 Phone: +91 98765 43210</p>
+        <p className="text-lg mt-2">📞 Phone: +91 76010 73187</p>
       </section>
 
       {/* Footer */}
