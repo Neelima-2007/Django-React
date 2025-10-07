@@ -153,3 +153,33 @@ def registration_list(request):
     registrations = Registration.objects.all()
     serializer = RegistrationSerializer(registrations, many=True)
     return Response(serializer.data)
+
+# -------------------------------
+# ✏️ 5. Update Registration API
+# -------------------------------
+@api_view(['PUT', 'PATCH'])
+def update_registration(request, pk):
+    try:
+        registration = Registration.objects.get(pk=pk)
+    except Registration.DoesNotExist:
+        return Response({"message": "Registration not found!"}, status=status.HTTP_404_NOT_FOUND)
+
+    serializer = RegistrationSerializer(registration, data=request.data, partial=True)
+    if serializer.is_valid():
+        serializer.save()
+        return Response({"message": "Registration updated successfully!", "data": serializer.data},
+                        status=status.HTTP_200_OK)
+    return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+# -------------------------------
+# 🗑️ 6. Delete Registration API
+# -------------------------------
+@api_view(['DELETE'])
+def delete_registration(request, pk):
+    try:
+        registration = Registration.objects.get(pk=pk)
+    except Registration.DoesNotExist:
+        return Response({"message": "Registration not found!"}, status=status.HTTP_404_NOT_FOUND)
+
+    registration.delete()
+    return Response({"message": "Registration deleted successfully!"}, status=status.HTTP_204_NO_CONTENT)
