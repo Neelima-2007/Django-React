@@ -73,7 +73,7 @@ const Footer = () => {
       </div>
     </div>
   </div>
-{/* Contact Section */}
+
       <section className="bg-blue-700 text-white py-16 px-6 md:px-20 text-center">
         <h2 className="text-3xl font-bold mb-6">Contact Us</h2>
         <p className="max-w-2xl mx-auto mb-4">
@@ -85,7 +85,7 @@ const Footer = () => {
         <p className="text-lg mt-2">📞 Phone: +91 76010 73187</p>
       </section>
 
-      {/* Footer */}
+     
       <footer className="bg-gray-900 text-white text-center py-4">
         <p>© {new Date().getFullYear()} Course Registration System | Built with Django & React</p>
       </footer>

@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 const Content = () => {
   return (
     <div className="bg-gray-50 text-gray-800">
-      {/* Hero Section */}
+      
       <section className="bg-blue-700 text-white text-center py-16">
         <motion.h1
           className="text-4xl md:text-5xl font-bold mb-4"
@@ -25,7 +25,7 @@ const Content = () => {
         </motion.p>
       </section>
 
-      {/* About Section */}
+      
       <section className="py-16 px-6 md:px-20">
         <h2 className="text-3xl font-bold text-center text-blue-700 mb-6">
           About the Project
@@ -40,7 +40,7 @@ const Content = () => {
         </p>
       </section>
 
-      {/* Features Section */}
+     
       <section className="bg-white py-16 px-6 md:px-20">
         <h2 className="text-3xl font-bold text-center text-blue-700 mb-10">
           Key Features
