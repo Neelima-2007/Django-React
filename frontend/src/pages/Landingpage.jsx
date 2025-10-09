@@ -1,4 +1,5 @@
 import React from 'react'
+import { Routes,Route } from "react-router-dom";
 import Navbar from '../Components/Navbar'
 import Hero from '../Components/Hero'
 import Content from '../Components/Content'
@@ -12,15 +13,19 @@ const Landingpage = () => {
   return (
     <div>
       <Navbar/>
-      <Hero/>
-      <Content/>
-      <Gallery/>
-      <Pricing/>
-      <Team/>
-      <Contact/>
-      <Footer/>
+      <Routes>
+        <Route path="/HERO" element = {<Hero/>}/>
+        <Route path="/CONTENT" element = {<Content/>}/>
+        <Route path="/GALLERY" element ={<Gallery/>}/>
+        <Route path="/PRICING-PLANS" element ={<Pricing/>}/>
+        <Route path="/TEAM" element ={<Team/>}/>
+        <Route path="/CONTACT" element ={<Contact/>}/>
+        <Route path="/FOOTER" element={<Footer/>}/>
+      </Routes>
     </div>
   )
 }
 
 export default Landingpage
+
+

@@ -1,8 +1,11 @@
 from django.urls import path
-from .views import course_list, register_user ,registration_list,login_user, update_registration,delete_registration
+from .views import course_list,create_course,update_course,delete_course, register_user ,registration_list,login_user, update_registration,delete_registration
 
 urlpatterns = [
     path("courses/", course_list, name="course-list"),
+    path("courses/add/", create_course, name="create-course"),
+    path("courses/<int:pk>/update/", update_course, name="update-course"),   
+    path("courses/<int:pk>/delete/", delete_course, name="delete-course"),   
     path("register/", register_user, name="register-user"),
     path("registrations/", registration_list, name="registration-list"), 
     path("login/", login_user, name="login-user"), 
