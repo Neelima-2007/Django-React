@@ -1,4 +1,5 @@
 import React from "react";
+import { NavLink } from "react-router-dom";
 
 const Gallery = () => {
   const images = [
@@ -11,45 +12,92 @@ const Gallery = () => {
   ];
 
   return (
-    <section className="text-gray-600 body-font bg-gray-100">
-      <div className="container px-5 py-24 mx-auto">
-        <div className="flex flex-col text-center w-full mb-20">
-          <h1 className="text-3xl font-medium title-font mb-4 text-gray-900">
-            Our Gallery
-          </h1>
-          <p className="lg:w-2/3 mx-auto leading-relaxed text-base text-gray-600">
-            A collection of moments, creativity, and innovation from our
-            projects and community.
-          </p>
-        </div>
+    <>
+      <header className="text-gray-600 body-font shadow-md bg-white fixed w-full top-0 z-50">
+        <div className="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
+          <NavLink
+            to="/"
+            className="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0"
+          >
+            <span className="ml-3 text-xl font-bold">🎓 Course Management</span>
+          </NavLink>
 
-        
-        <div className="flex flex-wrap -m-4">
-          {images.map((img, index) => (
-            <div key={index} className="lg:w-1/3 sm:w-1/2 p-4">
-              <div className="flex relative">
-                <img
-                  alt={`gallery-img-${index}`}
-                  className="absolute inset-0 w-full h-full object-cover object-center rounded-lg"
-                  src={img}
-                />
-                <div className="px-8 py-10 relative z-10 w-full border-4 border-gray-200 bg-white opacity-0 hover:opacity-100 rounded-lg transition-all duration-300">
-                  <h2 className="tracking-widest text-sm title-font font-medium text-indigo-500 mb-1">
-                    CATEGORY
-                  </h2>
-                  <h1 className="title-font text-lg font-medium text-gray-900 mb-3">
-                    Amazing Work
-                  </h1>
-                  <p className="leading-relaxed">
-                    Explore some of our best moments captured in frames.
-                  </p>
+          <nav className="md:ml-auto flex flex-wrap items-center text-base justify-center space-x-5">
+            <NavLink
+              to="/hero"
+              className={({ isActive }) =>
+                isActive
+                  ? "text-indigo-600 font-semibold border-b-2 border-indigo-600 pb-1"
+                  : "hover:text-gray-900"
+              }
+            >
+              Home
+            </NavLink>
+            <NavLink to="/content" className="hover:text-gray-900">
+              About
+            </NavLink>
+            <NavLink to="/gallery" className="hover:text-gray-900">
+              Gallery
+            </NavLink>
+            <NavLink to="/pricing-plans" className="hover:text-gray-900">
+              Pricing
+            </NavLink>
+            <NavLink to="/team" className="hover:text-gray-900">
+              Team
+            </NavLink>
+            <NavLink to="/contact" className="hover:text-gray-900">
+              Contact
+            </NavLink>
+
+          </nav>
+        </div>
+      </header>
+
+      
+      <section className="text-gray-600 body-font bg-gray-100 pt-24">
+        <div className="container px-5 py-24 mx-auto">
+          <div className="flex flex-col text-center w-full mb-20">
+            <h1 className="text-3xl font-medium title-font mb-4 text-gray-900">
+              Our Gallery
+            </h1>
+            <p className="lg:w-2/3 mx-auto leading-relaxed text-base text-gray-600">
+              A collection of moments, creativity, and innovation from our
+              projects and community.
+            </p>
+          </div>
+
+         
+          <div className="flex flex-wrap -m-4">
+            {images.map((img, index) => (
+              <div key={index} className="lg:w-1/3 sm:w-1/2 p-4">
+               
+                <div className="flex relative group rounded-lg overflow-hidden">
+                
+                  <img
+                    alt={`gallery-img-${index}`}
+                    className="w-full h-64 object-cover object-center"
+                    src={img}
+                  />
+
+                  
+                  <div className="absolute inset-0 flex flex-col justify-center items-start px-6 py-8 bg-white bg-opacity-90 opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10">
+                    <h2 className="tracking-widest text-sm title-font font-medium text-indigo-500 mb-1">
+                      CATEGORY
+                    </h2>
+                    <h1 className="title-font text-lg font-medium text-gray-900 mb-3">
+                      Amazing Work
+                    </h1>
+                    <p className="leading-relaxed text-sm">
+                      Explore some of our best moments captured in frames.
+                    </p>
+                  </div>
                 </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </>
   );
 };
 
