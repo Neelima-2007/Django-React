@@ -14,4 +14,4 @@ class Registration(models.Model):
     course = models.ForeignKey(Course, on_delete=models.CASCADE)
 
     def __str__(self):
-        return f"{self.name} - {self.course.name}"
+        return f"{self.name}-{self.email}-{self.mobile}-{self.course}"
