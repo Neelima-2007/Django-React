@@ -1,5 +1,14 @@
 
 from django.contrib import admin
-from .models import Course
+from .models import Course,Registration
 
-admin.site.register(Course)
+class CourseAdmin(admin.ModelAdmin):
+    list_display = ('id', 'name')
+
+class RegistrationAdmin(admin.ModelAdmin):
+    list_display = ('id', 'name', 'email','mobile', 'course')   
+    search_fields = ('name', 'email', 'course_name')
+    list_filter = ('course',) 
+
+admin.site.register(Course,CourseAdmin)
+admin.site.register(Registration,RegistrationAdmin)
