@@ -1,8 +1,8 @@
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from rest_framework import status
-from .models import Course, Registration
-from .serializers import CourseSerializer, RegistrationSerializer
+from .models import Course, Registration ,Gallery
+from .serializers import CourseSerializer, RegistrationSerializer ,GallerySerializer
 
 
 @api_view(['GET'])
@@ -134,3 +134,32 @@ def login_user(request):
     except Registration.DoesNotExist:
         return Response({"message": "Invalid credentials!"},
                         status=status.HTTP_400_BAD_REQUEST)
+
+
+# @api_view(['GET', 'POST'])
+# def gallery_list(request):
+#     if request.method == 'GET':
+#         galleries = Gallery.objects.all()
+#         serializer = GallerySerializer(galleries, many=True)
+#         return Response(serializer.data)
+
+#     elif request.method == 'POST':
+#         serializer = GallerySerializer(data=request.data)
+#         if serializer.is_valid():
+#             serializer.save()
+#             return Response(serializer.data, status=status.HTTP_201_CREATED)
+#         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+@api_view(['GET'])
+def get_gallery_list(request):
+    galleries = Gallery.objects.all()
+    serializer = GallerySerializer(galleries, many=True)
+    return Response(serializer.data)
+
+@api_view(['POST'])
+def add_gallery_item(request):
+    serializer = GallerySerializer(data=request.data)
+    if serializer.is_valid():
+        serializer.save()
+        return Response(serializer.data, status=status.HTTP_201_CREATED)
+    return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)

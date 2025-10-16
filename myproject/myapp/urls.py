@@ -1,5 +1,6 @@
 from django.urls import path
-from .views import course_list,create_course,update_course,delete_course, register_user ,registration_list,login_user, update_registration,delete_registration
+from .views import course_list,create_course,update_course,delete_course, register_user ,registration_list,login_user, update_registration,delete_registration,get_gallery_list, add_gallery_item
+
 
 urlpatterns = [
     path("courses/", course_list, name="course-list"),
@@ -11,4 +12,7 @@ urlpatterns = [
     path("login/", login_user, name="login-user"), 
     path('registrations/<int:pk>/update/', update_registration, name="update-registration"),
     path("registrations/<int:pk>/delete/", delete_registration, name="delete-registration"),
+    path('gallery/', get_gallery_list, name='get-gallery-list'),
+    path('gallery/add/', add_gallery_item, name='add-gallery-item'),
+    
 ]

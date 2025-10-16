@@ -1,10 +1,11 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 
 const Navbar = () => {
+  const navigate = useNavigate();
+
   return (
     <>
-  
       <header className="text-gray-600 body-font shadow-md bg-white fixed w-full top-0 z-50">
         <div className="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
           <NavLink
@@ -44,7 +45,6 @@ const Navbar = () => {
         </div>
       </header>
 
-     
       <section
         className="h-screen bg-cover bg-center flex flex-col justify-center items-center text-white"
         style={{
@@ -59,7 +59,10 @@ const Navbar = () => {
           <p className="text-lg md:text-2xl mb-6">
             Manage your courses, students, and progress with ease.
           </p>
-          <button className="bg-indigo-600 hover:bg-indigo-700 text-white py-2 px-6 rounded-full text-lg transition-all">
+          <button
+            onClick={() => navigate("/hero")}
+            className="bg-indigo-600 hover:bg-indigo-700 text-white py-2 px-6 rounded-full text-lg transition-all"
+          >
             Get Started
           </button>
         </div>
