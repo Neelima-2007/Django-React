@@ -9,6 +9,7 @@ import Gallery from './Components/Gallery'
 import Team from './Components/Team'
 import Pricing from './Components/Pricing'
 import Contact from './Components/Contact'
+// import RegistrationsTable from './Components/RegistrationsTable'
 
 const App = () => {
   return (
@@ -23,6 +24,7 @@ const App = () => {
         <Route path="/team" element={<Team />} />
         <Route path="/pricing-plans" element={<Pricing />} />
         <Route path="/contact" element={<Contact />} />
+        {/* <Route path="/registrations" element={<RegistrationsTable />} /> */}
       </Routes>
     </BrowserRouter>
   )
