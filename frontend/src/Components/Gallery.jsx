@@ -243,23 +243,139 @@
 
 // export default Gallery;
 
+// import React, { useEffect, useState } from "react";
+// import { NavLink } from "react-router-dom";
+// import axios from "axios";
+
+// const Gallery = () => {
+//   const [images, setImages] = useState([]);
+
+//   // Fetch gallery data from Django backend API
+//   useEffect(() => {
+//     axios
+//       .get("http://127.0.0.1:8000/api/gallery/")
+//       .then((response) => {
+//         setImages(response.data);
+//       })
+//       .catch((error) => {
+//         console.error("Error fetching gallery data:", error);
+//       });
+//   }, []);
+
+
+//   return (
+//     <>
+//       {/* Navbar */}
+//       <header className="text-gray-600 body-font shadow-md bg-white fixed w-full top-0 z-50">
+//         <div className="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
+//           <NavLink
+//             to="/"
+//             className="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0"
+//           >
+//             <span className="ml-3 text-xl font-bold">🎓 Course Management</span>
+//           </NavLink>
+
+//           <nav className="md:ml-auto flex flex-wrap items-center text-base justify-center space-x-5">
+//             <NavLink
+//               to="/hero"
+//               className={({ isActive }) =>
+//                 isActive
+//                   ? "text-indigo-600 font-semibold border-b-2 border-indigo-600 pb-1"
+//                   : "hover:text-gray-900"
+//               }
+//             >
+//               Home
+//             </NavLink>
+//             <NavLink to="/content" className="hover:text-gray-900">
+//               About
+//             </NavLink>
+//             <NavLink to="/gallery" className="hover:text-gray-900">
+//               Gallery
+//             </NavLink>
+//             <NavLink to="/pricing-plans" className="hover:text-gray-900">
+//               Pricing
+//             </NavLink>
+//             <NavLink to="/team" className="hover:text-gray-900">
+//               Team
+//             </NavLink>
+//             <NavLink to="/contact" className="hover:text-gray-900">
+//               Contact
+//             </NavLink>
+//           </nav>
+//         </div>
+//       </header>
+
+//       {/* Gallery Section */}
+//       <section className="text-gray-600 body-font bg-gray-100 pt-24">
+//         <div className="container px-5 py-24 mx-auto">
+//           <div className="flex flex-col text-center w-full mb-20">
+//             <h1 className="text-4xl font-bold title-font mb-4 text-indigo-600">
+//               Our Gallery
+//             </h1>
+//             <p className="lg:w-2/3 mx-auto leading-relaxed text-base text-gray-600">
+//               Explore highlights from our Course Management System program —
+//               training, teamwork, and success stories from our students and mentors.
+//             </p>
+//           </div>
+
+//           {/* Gallery Grid */}
+//           <div className="flex flex-wrap -m-4">
+//             {images.length > 0 ? (
+//               images.map((item) => (
+//                 <div key={item.id} className="lg:w-1/3 sm:w-1/2 p-4">
+//                   <div className="flex relative group rounded-xl overflow-hidden shadow-md">
+//                     <img
+//                       alt={item.title}
+//                       className="w-full h-64 object-cover object-center transition-transform duration-300 transform group-hover:scale-110"
+//                       src={item.image_url}
+//                     />
+
+//                     {/* Hover Info */}
+//                     <div className="absolute inset-0 flex flex-col justify-center items-start px-6 py-8 bg-white bg-opacity-95 opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10">
+//                       <h2 className="tracking-widest text-sm title-font font-semibold text-indigo-500 mb-1 uppercase">
+//                         {item.title}
+//                       </h2>
+//                       <p className="leading-relaxed text-sm text-gray-700">
+//                         {item.description}
+//                       </p>
+//                     </div>
+//                   </div>
+//                 </div>
+//               ))
+//             ) : (
+//               <p className="text-center w-full text-gray-500">Loading gallery...</p>
+//             )}
+//           </div>
+//         </div>
+//       </section>
+//     </>
+//   );
+// };
+
+// export default Gallery;
+
 import React, { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
-import axios from "axios";
+import ApiHelper from "../../Services/ApiHelper"; // ✅ Import ApiHelper instead of axios
 
 const Gallery = () => {
   const [images, setImages] = useState([]);
+  const [loading, setLoading] = useState(true);
 
-  // Fetch gallery data from Django backend API
+  // ✅ Fetch gallery data using ApiHelper
   useEffect(() => {
-    axios
-      .get("http://127.0.0.1:8000/api/gallery/")
-      .then((response) => {
+    const fetchGallery = async () => {
+      try {
+        const response = await ApiHelper.getGallery();
         setImages(response.data);
-      })
-      .catch((error) => {
+      } catch (error) {
         console.error("Error fetching gallery data:", error);
-      });
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchGallery();
   }, []);
 
   return (
@@ -312,14 +428,18 @@ const Gallery = () => {
               Our Gallery
             </h1>
             <p className="lg:w-2/3 mx-auto leading-relaxed text-base text-gray-600">
-              Explore highlights from our Course Management System program —
-              training, teamwork, and success stories from our students and mentors.
+              Explore highlights from our Course Management System — moments of
+              learning, teamwork, and success.
             </p>
           </div>
 
           {/* Gallery Grid */}
           <div className="flex flex-wrap -m-4">
-            {images.length > 0 ? (
+            {loading ? (
+              <p className="text-center w-full text-gray-500">
+                Loading gallery...
+              </p>
+            ) : images.length > 0 ? (
               images.map((item) => (
                 <div key={item.id} className="lg:w-1/3 sm:w-1/2 p-4">
                   <div className="flex relative group rounded-xl overflow-hidden shadow-md">
@@ -342,7 +462,9 @@ const Gallery = () => {
                 </div>
               ))
             ) : (
-              <p className="text-center w-full text-gray-500">Loading gallery...</p>
+              <p className="text-center w-full text-gray-500">
+                No images found.
+              </p>
             )}
           </div>
         </div>
