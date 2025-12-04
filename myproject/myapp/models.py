@@ -15,6 +15,15 @@ class Registration(models.Model):
 
     def __str__(self):
         return f"{self.name}-{self.email}-{self.mobile}-{self.course}"
+    
+    
+class Login(models.Model):
+    mobile = models.CharField(max_length=15,unique=False, null=True, blank=True)
+    email = models.EmailField()
+
+    def __str__(self):
+        return f"{self.email} - {self.mobile}"
+
 
 # This is Gallery.jsx Model 
 
@@ -25,3 +34,13 @@ class Gallery(models.Model):
 
     def __str__(self):
         return self.title
+
+#this is contac.jsx
+class Contact(models.Model):
+    name = models.CharField(max_length=100)
+    email = models.EmailField()
+    message = models.TextField()
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.name

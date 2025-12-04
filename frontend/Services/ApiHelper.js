@@ -12,6 +12,11 @@ class ApiHelper {
     });
   }
 
+  getAdminSummary() {
+    return this.client.get('admin/summary/');
+  }
+
+
   // ---------- COURSE APIs ----------
   getCourses() {
     return this.client.get("courses/");
@@ -22,12 +27,17 @@ class ApiHelper {
   }
 
   updateCourse(id, data) {
-    return this.client.put(`courses/update/${id}/`, data);
+    return this.client.put(`courses/${id}/update/`, data);
   }
 
   deleteCourse(id) {
-    return this.client.delete(`courses/delete/${id}/`);
+    return this.client.delete(`courses/${id}/delete/`);
   }
+
+  createRegistration(data) {
+    return this.client.post("register/", data);
+  }
+
 
   // ---------- REGISTRATION APIs ----------
   registerUser(data) {
@@ -43,13 +53,26 @@ class ApiHelper {
   }
 
   deleteRegistration(id) {
-    return this.client.delete(`registrations/delete/${id}/`);
+    return this.client.delete(`registrations/${id}/delete/`);
+  }
+
+  updateRegistration(id, data) {
+    // ✅ This matches Django URL: "registrations/<int:pk>/update/"
+    return this.client.put(`registrations/${id}/update/`, data);
   }
 
   // ---------- LOGIN ----------
   loginUser(data) {
     return this.client.post("login/", data);
   }
+  getLoginList() {
+    return this.client.get("loginlist/"); // <-- your Django API endpoint
+  }
+  
+  getLoginUsers() {
+    return this.client.get("login/");
+  }
+
 
   // ---------- GALLERY ----------
   getGallery() {
@@ -58,6 +81,11 @@ class ApiHelper {
 
   addGalleryItem(data) {
     return this.client.post("gallery/add/", data);
+  }
+
+  // ---------- CONTACT ----------
+  sendContactMessage(data) {
+    return this.client.post("contact/", data);
   }
 }
 

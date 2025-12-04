@@ -9,6 +9,8 @@ import Gallery from './Components/Gallery'
 import Team from './Components/Team'
 import Pricing from './Components/Pricing'
 import Contact from './Components/Contact'
+// import LoginList from "./Components/LoginList";
+import AdminDashboard from './Components/AdminDashboard'
 
 const App = () => {
   return (
@@ -23,6 +25,8 @@ const App = () => {
         <Route path="/team" element={<Team />} />
         <Route path="/pricing-plans" element={<Pricing />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="/admin-dashboard" element={<AdminDashboard />} />
+        {/* <Route path="/loginlist" element={<LoginList />} /> */}
       </Routes>
     </BrowserRouter>
   )
